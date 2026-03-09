@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: flyway-test
+  datasource:
+    url: jdbc:mysql://localhost:3307/blog?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: secretpswd
+  jpa:
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: update
+      show-sql: false
+      open-in-view: false
+  flyway:
+    enabled: true
+    url: jdbc:mysql://localhost:3307/blog?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    user: root
+    password: secretpswd
+    group: true
+
+
+
+

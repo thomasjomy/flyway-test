@@ -1,0 +1,25 @@
+Flyway has the following commands at its disposal:   Migrate ,   Clean ,   Info ,   Validate ,   Undo ,   Baseline, Repair, Check and Snapshot
+
+
+Migrations can be written in  SQL   (native database-specific syntax such as PL/SQL and T-SQL is supported) or
+Java   (for advanced data transformations or dealing with LOBs).
+
+You can find out about Databases the CLI supports in the documents and the list includes Oracle,  SQL Server,  MySQL  (plus variants),
+PostgreSQL (and many variants) as well as NoSQL databases like MongoDB and Cassandra.
+
+
+> flyway -user=myuser -schemas=schema1,schema2 -placeholders.keyABC=valueXYZ migrate
+> flyway info -url="jdbc:snowflake://ab12345.snowflakecomputing.com/?db=demo_db&user=foo"
+
+P6Spy
+-----
+P6Spy is another approach to logging which operates at the driver or datasource level, and Flyway has integration with this.
+You can read about setting it up here and configuring it here.
+
+The property spring.flyway.group set to true indicates we want to run the pending migrations in a single transaction instead of one transaction per pending migrations.
+So if one migration fails, all the executed migrations before will be rollbacked.
+
+Run migration from Flyway CLI
+-----------------------------
+> flyway migrate -configFiles=flyway.properties
+> flyway undo -configFiles=flyway.properties
